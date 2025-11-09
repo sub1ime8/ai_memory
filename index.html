@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>David Memory Video</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    /* Make video fill entire viewport on all devices */
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      background-color: #000;
+    }
+
+    /* Optional overlay text */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    a.download {
+      color: #9ad;
+      text-decoration: underline;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Mobile optimizations */
+    @media (orientation: portrait) {
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Autoplay video fills screen on phones and desktops -->
+  <video autoplay muted loop playsinline preload="auto" poster="poster.jpg">
+    <source src="DavidMemory.mp4" type="video/mp4" />
+    Your browser doesn’t support HTML5 video.
+  </video>
+
+  <!-- Optional centered overlay text -->
+  <div class="overlay">
+    <div>
+      <p>David Memory Video</p>
+      <a class="download" href="DavidMemory.mp4" download>Download Video</a>
+    </div>
+  </div>
+</body>
+</html>
